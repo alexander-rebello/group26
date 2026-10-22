@@ -25,24 +25,20 @@ Spark pipelines for learning distributed data processing.
 
 ### Overview
 
-The Jupyter notebooks in this folder teach Apache Spark end-to-end across **two consolidated labs**
-that share **one single e-commerce clickstream dataset** (generated once in Lab 2, reused by Lab 3):
+The Jupyter notebooks in this folder teach Apache Spark end-to-end across **two consolidated labs** that share **one single e-commerce clickstream dataset** (generated once in Lab 2, reused by Lab 3):
 
 | Lab   | Notebook                        | Key Concepts                                                                                                                                                                                                                                                 |
 | ----- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Lab 2 | `lab2_spark_fundamentals.ipynb` | SparkSession & architecture, RDD/DataFrame/SQL/pandas conversions, column ops & type casting, filtering/sorting/aggregations, Parquet/CSV/JSON I/O, MapReduce with RDDs, the Medallion Architecture (Bronze/Silver/Gold)                                     |
 | Lab 3 | `lab3_advanced_spark.ipynb`     | Window functions, partitioning strategies, caching/persistence, every join type + broadcast joins, query optimization, UDFs vs pandas UDFs vs built-ins, Structured Streaming basics, production patterns (incremental processing, data quality, SCD Type 2) |
 
-The `.py` pipeline scripts (`lab2_pipeline.py`, `lab3_pipeline.py`, `run_pipeline.py`) mirror the same
-two-lab structure as the notebooks: `lab2_pipeline.py` generates the shared dataset and builds the
-Medallion pipeline, and `lab3_pipeline.py` loads Lab 2's Silver output and runs the advanced/production
-patterns. Run Lab 2 before Lab 3 (or use `python run_pipeline.py all`).
+The `.py` pipeline scripts (`lab2_pipeline.py`, `lab3_pipeline.py`, `run_pipeline.py`) mirror the same two-lab structure as the notebooks: `lab2_pipeline.py` generates the shared dataset and builds the Medallion pipeline, and `lab3_pipeline.py` loads Lab 2's Silver output and runs the advanced/production patterns. Run Lab 2 before Lab 3 (or use `python run_pipeline.py all`).
 
 ### Quick Start
 
 1. **Install Prerequisites (Lab 1)**:
 
-    Complete the `lab1_install-spark.sh` script on Ubuntu VM for clearting Spark.
+   Complete the `lab1_install-spark.sh` script on Ubuntu VM for clearting Spark.
 
    ```bash
    chmod +x lab1_install-spark.sh
@@ -52,14 +48,14 @@ patterns. Run Lab 2 before Lab 3 (or use `python run_pipeline.py all`).
 
 2. Run Pipeline Scripts:
 
-    ```bash
-    # Run individual labs
-    python run_pipeline.py lab2
-    python run_pipeline.py lab3
+   ```bash
+   # Run individual labs
+   python run_pipeline.py lab2
+   python run_pipeline.py lab3
 
-    # Run all labs (Lab 2 then Lab 3)
-    python run_pipeline.py all
-    ```
+   # Run all labs (Lab 2 then Lab 3)
+   python run_pipeline.py all
+   ```
 
 ### Lab Details
 
@@ -105,8 +101,7 @@ patterns. Run Lab 2 before Lab 3 (or use `python run_pipeline.py all`).
 - Build a minimal Structured Streaming pipeline with a windowed aggregation
 - Learn production patterns: incremental processing, data quality checks, SCD Type 2, safe aggregation
 
-**Input:** loads the Silver-layer dataset produced by Lab 2 from `~/spark-lab-data/shared/silver/events`
-(run Lab 2 first).
+**Input:** loads the Silver-layer dataset produced by Lab 2 from `~/spark-lab-data/shared/silver/events` (run Lab 2 first).
 
 **Output:**
 
@@ -155,8 +150,7 @@ The runner environment requires the following predefined paths and dependencies:
 - **Spark Home**: `/opt/spark`
 - **Java Home**: `/usr/lib/jvm/java-8-openjdk-amd64`
 
-**⚠️ Note for Personal Forks:**
-If you fork this repository to your personal GitHub account, you will need to set up a self-hosted runner with Spark and Java installed.
+**⚠️ Note for Personal Forks:** If you fork this repository to your personal GitHub account, you will need to set up a self-hosted runner with Spark and Java installed.
 
 ### Setting up a Self-Hosted Runner
 
@@ -184,7 +178,7 @@ tar xzf ./actions-runner-osx-x64-2.337.0.tar.gz
 
 # Start the runner
 # To keep the runner alive after closing the terminal, install as a service:
-sudo ./svc.sh install 
+sudo ./svc.sh install
 sudo ./svc.sh start
 ```
 
@@ -202,3 +196,5 @@ You can test a pipeline without waiting for the schedule:
 - **Virtual Environment Not Found**: Ensure `~/spark-env/bin/activate` exists on the self-hosted runner.
 - **Java / Spark Path Mismatch**: Verify `JAVA_HOME` and `SPARK_HOME` paths on your runner match the environment settings.
 - **Permission Denied**: If `run_pipeline.py` fails to run, make it executable via `git update-index --chmod=+x run_pipeline.py`.
+
+Group 26 – CI/CD set up by Alex
